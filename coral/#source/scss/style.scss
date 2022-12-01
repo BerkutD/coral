@@ -1,0 +1,38 @@
+@import "./nullstyle";
+
+.container {
+	display: grid;
+	grid-template-columns: 1fr 1320px 1fr;
+	grid-template-rows: 145px 1fr 450px;
+	grid-template-areas: 
+	"header header header"
+	"... main ..."
+	"footer footer footer";
+	min-height: 100%;
+}
+.header__wrapper {
+	// display: grid;
+	// grid-template-columns: repeat(12, 1fr);
+	// grid-template-rows: 90px 1fr;
+	// gap: 24px ;
+	// row-gap: 0;
+
+}
+.header {
+	grid-area: header;
+	background-color: #f1f1f1;
+	display: grid;
+}
+.header__search {
+}
+.header__logo {
+}
+.logo {
+}
+.header__login {
+}
+.header__shoping {
+
+}
+.header__nav {
+}
