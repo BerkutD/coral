@@ -2,37 +2,87 @@
 
 .container {
 	display: grid;
-	grid-template-columns: 1fr 1320px 1fr;
-	grid-template-rows: 145px 1fr 450px;
+	grid-template-columns: 1fr;
+	grid-template-rows: 145px repeat(6, 1fr) 450px;
 	grid-template-areas: 
-	"header header header"
-	"... main ..."
-	"footer footer footer";
+	"header"
+	"hero"
+	"categoty"
+	"products"
+	"brand-banner"
+	"best-seller"
+	"newsletter"
+	"footer";
 	min-height: 100%;
 }
-.header__wrapper {
-	// display: grid;
-	// grid-template-columns: repeat(12, 1fr);
-	// grid-template-rows: 90px 1fr;
-	// gap: 24px ;
-	// row-gap: 0;
-
-}
+// --------------------------------------------------------------------------------------------------------------------------------Seaction__header__START--------------------------------------------------------------------------------------------------------------------------------
 .header {
 	grid-area: header;
 	background-color: #f1f1f1;
 	display: grid;
+	grid-template-columns: 1fr minmax(auto, 1320px) 1fr;;
+	grid-template-areas: 
+	". header__wrapper .";
 }
+.header__wrapper {
+	display: grid;
+	grid-area: header__wrapper;
+	grid-template-columns: 20px 1fr 70px 70px;
+	grid-template-areas: 
+"header__search header__logo header__login header__shoping"
+"header__nav header__nav header__nav header__nav";
+align-items: center;
+text-align: center;
+}
+
 .header__search {
+	grid-area: header__search;
 }
 .header__logo {
-}
-.logo {
+	grid-area: header__logo;
 }
 .header__login {
+	grid-area: header__login;
 }
 .header__shoping {
-
+	grid-area: header__shoping;
 }
 .header__nav {
+	grid-area: header__nav;
+}
+// --------------------------------------------------------------------------------------------------------------------------------Seaction__header__END--------------------------------------------------------------------------------------------------------------------------------
+.hero {
+	grid-area: hero;
+	height: 100%;
+}
+.hero__right-decor {
+	grid-area: hero__right-decor;
+	height: 100%;
+}
+.hero__left-decor {
+	grid-area: hero__left-decor;
+	height: 100%;
+}
+.categoty {
+	grid-area: category;
+	height: 100%;
+}
+.products {
+	grid-area: products;
+	height: 100%;
+}
+.brand-banner {
+	grid-area: brand-banner;
+	height: 100%;
+}
+.best-seller {
+	grid-area: best-seller;
+	height: 100%;
+}
+.newsletter {
+	grid-area: newsletter;
+	height: 100%;
+}
+.footer {
+	grid-area: footer;
 }
