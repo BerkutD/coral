@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins&family=Roboto:wght@300;400;500&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -84,6 +85,8 @@ h1, h2, h3, h4, h5, h6 {
 .header {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   grid-area: header;
   background-color: #f1f1f1;
   display: -ms-grid;
@@ -99,13 +102,18 @@ h1, h2, h3, h4, h5, h6 {
   display: -ms-grid;
   display: grid;
   grid-area: header__wrapper;
-  -ms-grid-columns: 20px 1fr 70px 70px;
-  grid-template-columns: 20px 1fr 70px 70px;
+  -ms-grid-columns: 20px 5px 1fr 5px 105px 5px 105px;
+  grid-template-columns: 20px 1fr 105px 105px;
+  -ms-grid-rows: auto 45px;
+  grid-template-rows: auto 45px;
       grid-template-areas: "header__search header__logo header__login header__shoping" "header__nav header__nav header__nav header__nav";
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+  -webkit-column-gap: 5px;
+     -moz-column-gap: 5px;
+          column-gap: 5px;
 }
 
 .header__search {
@@ -116,44 +124,157 @@ h1, h2, h3, h4, h5, h6 {
 
 .header__logo {
   -ms-grid-row: 1;
-  -ms-grid-column: 2;
+  -ms-grid-column: 3;
   grid-area: header__logo;
 }
 
 .header__login {
   -ms-grid-row: 1;
-  -ms-grid-column: 3;
+  -ms-grid-column: 5;
   grid-area: header__login;
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+.header__login::before {
+  content: url(../img/header/acc-icon.svg);
+  display: inline-block;
+  position: absolute;
+  left: -8px;
+  top: -1px;
 }
 
 .header__shoping {
   -ms-grid-row: 1;
-  -ms-grid-column: 4;
+  -ms-grid-column: 7;
   grid-area: header__shoping;
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  position: relative;
+}
+.header__shoping::before {
+  content: url(../img/header/shop-icon.svg);
+  display: inline-block;
+  margin-right: 8px;
+  position: absolute;
+  left: -8px;
+  top: -1px;
 }
 
 .header__nav {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 4;
+  -ms-grid-column-span: 7;
   grid-area: header__nav;
+  height: 100%;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: normal;
+}
+.header__nav ul {
+  height: 100%;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+          column-gap: 10px;
+}
+.header__nav ul a {
+  color: black;
 }
 
 .hero {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
+  background-color: #f1f1f1;
   grid-area: hero;
-  height: 100%;
+  height: 700px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr minmax(auto, 1320px) 1fr;
+  grid-template-columns: 1fr minmax(auto, 1320px) 1fr;
+      grid-template-areas: "hero__left-decor hero__content hero__right-decor";
 }
 
 .hero__right-decor {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
   grid-area: hero__right-decor;
+  position: relative;
   height: 100%;
+}
+.hero__right-decor img {
+  position: absolute;
+  right: 0;
+  top: 28%;
+  max-width: 100%;
 }
 
 .hero__left-decor {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
   grid-area: hero__left-decor;
+  position: relative;
   height: 100%;
+}
+.hero__left-decor img {
+  position: absolute;
+  left: 0;
+  bottom: 10%;
+  max-width: 100%;
+}
+
+.hero__content {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: hero__content;
+  padding: 10px;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: ". hero__img" "hero__title hero__img" "hero__subtitle hero__img" "hero__button hero__img" ". hero__img";
+}
+
+.hero__title {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: hero__title;
+}
+
+.hero__subtitle {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: hero__subtitle;
+}
+
+.hero__img {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 5;
+  -ms-grid-column: 2;
+  grid-area: hero__img;
+}
+.hero__img .main__image {
+  overflow: hidden;
+  border-radius: 160px 0;
+}
+
+.hero__button {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  grid-area: hero__button;
 }
 
 .categoty {
