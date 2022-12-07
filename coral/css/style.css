@@ -312,7 +312,6 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #f1f1f1;
   grid-area: hero;
   height: 700px;
-  padding: 0px 50px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr minmax(auto, 1320px) 1fr;
@@ -355,6 +354,7 @@ h1, h2, h3, h4, h5, h6 {
   display: -ms-grid;
   display: grid;
   gap: 30px;
+  padding: 0px 50px;
       grid-template-areas: ". hero__img" "hero__title hero__img" "hero__subtitle hero__img" "hero__button hero__img" ". hero__img";
 }
 
@@ -409,6 +409,7 @@ h1, h2, h3, h4, h5, h6 {
   -ms-grid-row: 7;
   -ms-grid-column: 1;
   grid-area: hero__button;
+  position: relative;
 }
 .hero__button button {
   width: 223px;
@@ -423,23 +424,21 @@ h1, h2, h3, h4, h5, h6 {
   padding-right: 25px;
 }
 
-.hero__button_span {
-  position: relative;
-}
-
-.hero__button_span::before {
-  content: url(../img/hero/shop-button-white.svg);
+.hero__button_icon {
   position: absolute;
-  left: -40px;
-  top: 0;
+  left: 23px;
+  top: 18px;
+}
+.hero__button_icon img {
+  height: 35px;
 }
 
 @media screen and (max-width: 750px) {
   .hero {
     height: 100%;
-    padding: 0 30px;
   }
   .hero__content {
+    padding: 0 30px;
     gap: 20px;
         grid-template-areas: "hero__img" "hero__title" "hero__subtitle" "hero__button";
   }
@@ -489,16 +488,27 @@ h1, h2, h3, h4, h5, h6 {
   }
   .hero__content .hero__button {
     margin-bottom: 20px;
+    position: relative;
   }
   .hero__content .hero__button button {
-    width: 133px;
+    width: 140px;
     height: 43px;
     font-size: 19px;
     padding-right: 15px;
   }
+  .hero__content .hero__button_span {
+    position: static;
+  }
+  .hero__content .hero__button_span .hero__button_icon {
+    position: absolute;
+    left: 8px;
+    top: 7px;
+  }
+  .hero__content .hero__button_span .hero__button_icon img {
+    height: 25px;
+  }
   .hero__content .hero__button_span::before {
-    left: -5px;
-    top: 5px;
+    display: none;
   }
 }
 .categoty {

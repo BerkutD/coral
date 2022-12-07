@@ -158,7 +158,6 @@ column-gap: 5px;
 	background-color: #f1f1f1;
 	grid-area: hero;
 	height: 700px;
-	padding: 0px 50px;
 	display: grid;
 	grid-template-columns: 1fr minmax(auto, 1320px) 1fr;
 	grid-template-areas: "hero__left-decor hero__content hero__right-decor";
@@ -189,6 +188,7 @@ column-gap: 5px;
 	grid-area: hero__content;
 	display: grid;
 	gap: 30px;
+	padding: 0px 50px;
 	grid-template-areas: 
 	". hero__img"
 	"hero__title hero__img"
@@ -229,6 +229,7 @@ height: 100%;
 }
 .hero__button {
 	grid-area: hero__button;
+	position: relative;
 	button {
 		width: 223px;
 		height: 72px;
@@ -242,22 +243,22 @@ height: 100%;
 		padding-right: 25px;
 	}
 }
-.hero__button_span {
-	position: relative;
-}
-.hero__button_span::before {
-	content: url(../img/hero/shop-button-white.svg);
+.hero__button_icon {
 	position: absolute;
-	left: -40px;
-	top: 0;
+	left: 23px;
+	top: 18px;
+	img {
+		height: 35px;
+
+	}
 }
 
 @media screen and (max-width: 750px) {
 	.hero {
 		height: 100%;
-		padding: 0 30px;
 	}
 	.hero__content {
+		padding: 0 30px;
 		gap: 20px;
 		grid-template-areas: 
 		"hero__img"
@@ -295,18 +296,30 @@ height: 100%;
 		}
 		.hero__button {
 			margin-bottom: 20px;
+			position: relative;
 			button {
-				width: 133px;
+				width: 140px;
 				height: 43px;
 				font-size: 19px;
 				padding-right: 15px;
 			}
 		}
+		.hero__button_span {
+			position: static;
+			.hero__button_icon {
+				position: absolute;
+				left: 8px;
+				top: 7px;
+				img {
+					height: 25px;
+				}
+			}
+		}
 		.hero__button_span::before {
-			left: -5px;
-			top:5px;
+		display: none;
 		}
 	}
+	
 }
 // --------------------------------------------------------------------------------------------------------------------------------Seaction__hero__END--------------------------------------------------------------------------------------------------------------------------------
 .categoty {
