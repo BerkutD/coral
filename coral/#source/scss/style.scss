@@ -4,11 +4,11 @@
 .container {
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 145px repeat(6, 1fr) 450px;
+	grid-template-rows: auto repeat(6, auto) 450px;
 	grid-template-areas: 
 	"header"
 	"hero"
-	"categoty"
+	"category"
 	"products"
 	"brand-banner"
 	"best-seller"
@@ -19,17 +19,21 @@
 }
 // --------------------------------------------------------------------------------------------------------------------------------Seaction__header__START--------------------------------------------------------------------------------------------------------------------------------
 .header {
-	padding: 30px;
 	box-sizing: border-box;
 	grid-area: header;
+	padding-top: 30px;
+	padding-bottom: 84px;
 	background-color: #f1f1f1;
 	display: grid;
+	height: 100%;
 	grid-template-columns: 1fr minmax(auto, 1320px) 1fr;
 	grid-template-areas: 
 	". header__wrapper .";
 }
 .header__wrapper {
+	padding: 0px 50px;
 	display: grid;
+	height: 100%;
 	grid-area: header__wrapper;
 	grid-template-columns: 20px 1fr 105px 105px;
 	grid-template-rows: auto auto;
@@ -84,11 +88,11 @@ column-gap: 5px;
 }
 .header__nav {
 	grid-area: header__nav;
+	padding-top: 55px;
 	height: 100%;
 	font-family: Poppins;
 	font-size: 16px;
 	ul {
-		padding: 10px 0;
 		height: 100%;
 		align-items: end;
 		display: grid;
@@ -101,10 +105,13 @@ column-gap: 5px;
 }
 @media screen and (max-width: 750px) {
 	.container {
-		grid-template-rows: auto repeat(6, 1fr) auto;
+		grid-template-rows: auto repeat(6, auto) auto;
+	}
+	.header {
+		padding-top: 30px;
+		padding-bottom: 44px;
 	}
 	.header__wrapper {
-		padding: 20px;
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: auto auto;
 		grid-template-areas: 
@@ -112,6 +119,9 @@ column-gap: 5px;
 	"header__nav header__nav" 
 	"header__nav header__nav";
 	gap: 10px;
+	.header__nav {
+		padding-top: 25px;
+	}
 	}
 	.header__wrapper ul {
 		height: 100%;
@@ -121,12 +131,11 @@ column-gap: 5px;
 		grid-template-columns: 1fr 1fr;
 		grid-auto-flow: row;
 		gap: 15px;
-		padding-top: 20px;
 	}
+
 }
 @media screen and (max-width: 435px) {
 	.header__wrapper {
-		padding: 20px;
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-areas: 
 	"header__logo header__logo" 
@@ -149,7 +158,6 @@ column-gap: 5px;
 		grid-template-columns: 1fr;
 		grid-auto-flow: row;
 		gap: 15px;
-		padding-top: 20px;
 	}
 }
 // --------------------------------------------------------------------------------------------------------------------------------Seaction__header__END--------------------------------------------------------------------------------------------------------------------------------
@@ -157,7 +165,7 @@ column-gap: 5px;
 .hero {
 	background-color: #f1f1f1;
 	grid-area: hero;
-	height: 700px;
+	height: 100%;
 	display: grid;
 	grid-template-columns: 1fr minmax(auto, 1320px) 1fr;
 	grid-template-areas: "hero__left-decor hero__content hero__right-decor";
@@ -188,7 +196,7 @@ column-gap: 5px;
 	grid-area: hero__content;
 	display: grid;
 	gap: 30px;
-	padding: 0px 50px;
+	padding: 0px 50px 60px 50px;
 	grid-template-areas: 
 	". hero__img"
 	"hero__title hero__img"
@@ -241,6 +249,10 @@ height: 100%;
 		font-size: 29px;
 		text-align: right;
 		padding-right: 25px;
+		// transition-duration: 500ms;
+		// &:hover {
+		// 	color:red;
+		// }
 	}
 }
 .hero__button_icon {
@@ -322,26 +334,135 @@ height: 100%;
 	
 }
 // --------------------------------------------------------------------------------------------------------------------------------Seaction__hero__END--------------------------------------------------------------------------------------------------------------------------------
-.categoty {
+// --------------------------------------------------------------------------------------------------------------------------------Seaction__category__START--------------------------------------------------------------------------------------------------------------------------------
+.category {
 	grid-area: category;
 	height: 100%;
+	padding: 0px 0px 140px 0px;
 }
+.category_wrapper {
+	display: grid;
+	grid-template-columns: 1fr minmax(auto, 1320px) 1fr;
+	grid-template-areas: 
+	". category__brands ."
+	". category__gallery ."
+	;
+}
+.category__brands{
+	grid-area: category__brands;
+	padding: 90px 50px;
+	.category__brands_list {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		align-items: center;
+		img {
+			max-height: 100%;
+			width: 100%;
+			overflow: hidden;
+		}
+	}
+}
+.category__gallery {
+	padding: 0px 50px;
+	grid-area: category__gallery;
+	height: 100%;
+	width: 100%;
+	object-fit: fill;
+	display: grid;
+	gap: 30px;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	// grid-column: auto;
+	// grid-row: auto;
+	.span4 {
+		grid-row: span 2;
+		grid-column: span 2;
+	}
+	img {
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
+		position: relative;
+	}
+	.category_hover {
+		width: 100%;
+		height: 16.5%;
+		background-color: #1E2832;
+		position: relative;
+		bottom: 16.5%;
+		z-index: 5;
+		opacity: 0;
+		transition-duration: 500ms;
+	}
+	.item-1:hover, .item-2:hover, .item-3:hover, .item-4:hover, .item-5:hover {
+		.category_hover {
+			opacity: 1;
+		}
+	}
+	@keyframes hover {
+		0%{
+
+		}
+		100%{
+			
+		}
+	}
+
+}
+@media screen and (max-width: 750px) {
+	.category__brands {
+		height: 30%;
+		.category__brands_list {
+		display: none;
+		}
+	}
+	.category__gallery {
+		padding: 0px 30px;
+		gap: 15px;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(4, 1fr);
+	}
+	.category__brands{
+		padding: 50px 30px;
+	}
+}
+@media screen and (max-width: 435px) {
+	.category__gallery {
+		grid-template-columns: auto;
+		grid-template-rows: auto;
+		.span4 {
+			grid-row: span 1;
+			grid-column: span 1;
+		}
+	}
+}
+--------------------------------------------------------------------------------------------------------------------------------Seaction__category__END--------------------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------------------Seaction__products__START--------------------------------------------------------------------------------------------------------------------------------
 .products {
 	grid-area: products;
 	height: 100%;
 }
+// --------------------------------------------------------------------------------------------------------------------------------Seaction__products__END--------------------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------------------Seaction__brand-banner__START--------------------------------------------------------------------------------------------------------------------------------
 .brand-banner {
 	grid-area: brand-banner;
 	height: 100%;
 }
+// --------------------------------------------------------------------------------------------------------------------------------Seaction__brand-banner__END--------------------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------------------Seaction__best-seller__START--------------------------------------------------------------------------------------------------------------------------------
 .best-seller {
 	grid-area: best-seller;
 	height: 100%;
 }
+// --------------------------------------------------------------------------------------------------------------------------------Seaction__best-seller__END--------------------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------------------Seaction__newsletter__START--------------------------------------------------------------------------------------------------------------------------------
 .newsletter {
 	grid-area: newsletter;
 	height: 100%;
 }
+// --------------------------------------------------------------------------------------------------------------------------------Seaction__newsletter__END--------------------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------------------Seaction__footer__START--------------------------------------------------------------------------------------------------------------------------------
 .footer {
 	grid-area: footer;
 }
+// --------------------------------------------------------------------------------------------------------------------------------Seaction__footer__END--------------------------------------------------------------------------------------------------------------------------------

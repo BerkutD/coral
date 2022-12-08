@@ -76,9 +76,9 @@ h1, h2, h3, h4, h5, h6 {
   display: grid;
   -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
-  -ms-grid-rows: 145px (1fr)[6] 450px;
-  grid-template-rows: 145px repeat(6, 1fr) 450px;
-      grid-template-areas: "header" "hero" "categoty" "products" "brand-banner" "best-seller" "newsletter" "footer";
+  -ms-grid-rows: auto (auto)[6] 450px;
+  grid-template-rows: auto repeat(6, auto) 450px;
+      grid-template-areas: "header" "hero" "category" "products" "brand-banner" "best-seller" "newsletter" "footer";
   min-height: 100%;
   width: 100%;
 }
@@ -86,13 +86,15 @@ h1, h2, h3, h4, h5, h6 {
 .header {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
-  padding: 30px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   grid-area: header;
+  padding-top: 30px;
+  padding-bottom: 84px;
   background-color: #f1f1f1;
   display: -ms-grid;
   display: grid;
+  height: 100%;
   -ms-grid-columns: 1fr minmax(auto, 1320px) 1fr;
   grid-template-columns: 1fr minmax(auto, 1320px) 1fr;
       grid-template-areas: ". header__wrapper .";
@@ -101,8 +103,10 @@ h1, h2, h3, h4, h5, h6 {
 .header__wrapper {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
+  padding: 0px 50px;
   display: -ms-grid;
   display: grid;
+  height: 100%;
   grid-area: header__wrapper;
   -ms-grid-columns: 20px 5px 1fr 5px 105px 5px 105px;
   grid-template-columns: 20px 1fr 105px 105px;
@@ -180,12 +184,12 @@ h1, h2, h3, h4, h5, h6 {
   -ms-grid-column: 1;
   -ms-grid-column-span: 7;
   grid-area: header__nav;
+  padding-top: 55px;
   height: 100%;
   font-family: Poppins;
   font-size: 16px;
 }
 .header__nav ul {
-  padding: 10px 0;
   height: 100%;
   -webkit-box-align: end;
       -ms-flex-align: end;
@@ -203,17 +207,23 @@ h1, h2, h3, h4, h5, h6 {
 
 @media screen and (max-width: 750px) {
   .container {
-    -ms-grid-rows: auto (1fr)[6] auto;
-    grid-template-rows: auto repeat(6, 1fr) auto;
+    -ms-grid-rows: auto (auto)[6] auto;
+    grid-template-rows: auto repeat(6, auto) auto;
+  }
+  .header {
+    padding-top: 30px;
+    padding-bottom: 44px;
   }
   .header__wrapper {
-    padding: 20px;
     -ms-grid-columns: 1fr 10px 1fr;
     grid-template-columns: repeat(2, 1fr);
     -ms-grid-rows: auto 10px auto;
     grid-template-rows: auto auto;
         grid-template-areas: "header__search header__logo" "header__login header__shoping" "header__nav header__nav" "header__nav header__nav";
     gap: 10px;
+  }
+  .header__wrapper .header__nav {
+    padding-top: 25px;
   }
   .header__wrapper ul {
     height: 100%;
@@ -227,7 +237,6 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: 1fr 1fr;
     grid-auto-flow: row;
     gap: 15px;
-    padding-top: 20px;
   }
   .header__search {
     -ms-grid-row: 1;
@@ -254,7 +263,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media screen and (max-width: 435px) {
   .header__wrapper {
-    padding: 20px;
     -ms-grid-columns: 1fr 10px 1fr;
     grid-template-columns: repeat(2, 1fr);
     -ms-grid-rows: auto 10px auto 10px auto 10px auto;
@@ -279,7 +287,6 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: 1fr;
     grid-auto-flow: row;
     gap: 15px;
-    padding-top: 20px;
   }
   .header__search {
     -ms-grid-row: 5;
@@ -311,7 +318,7 @@ h1, h2, h3, h4, h5, h6 {
   -ms-grid-column: 1;
   background-color: #f1f1f1;
   grid-area: hero;
-  height: 700px;
+  height: 100%;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr minmax(auto, 1320px) 1fr;
@@ -354,7 +361,7 @@ h1, h2, h3, h4, h5, h6 {
   display: -ms-grid;
   display: grid;
   gap: 30px;
-  padding: 0px 50px;
+  padding: 0px 50px 60px 50px;
       grid-template-areas: ". hero__img" "hero__title hero__img" "hero__subtitle hero__img" "hero__button hero__img" ". hero__img";
 }
 
@@ -511,12 +518,200 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
   }
 }
-.categoty {
+.category {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
   grid-area: category;
   height: 100%;
+  padding: 0px 0px 140px 0px;
 }
 
-.products {
+.category_wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr minmax(auto, 1320px) 1fr;
+  grid-template-columns: 1fr minmax(auto, 1320px) 1fr;
+      grid-template-areas: ". category__brands ." ". category__gallery .";
+}
+
+.category__brands {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: category__brands;
+  padding: 90px 50px;
+}
+.category__brands .category__brands_list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+  grid-template-columns: repeat(5, 1fr);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.category__brands .category__brands_list img {
+  max-height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.category__gallery {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  padding: 0px 50px;
+  grid-area: category__gallery;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: fill;
+     object-fit: fill;
+  display: -ms-grid;
+  display: grid;
+  gap: 30px;
+  -ms-grid-columns: 1fr 30px 1fr 30px 1fr 30px 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: 1fr 30px 1fr;
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.category__gallery > *:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+
+.category__gallery > *:nth-child(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+}
+
+.category__gallery > *:nth-child(3) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+}
+
+.category__gallery > *:nth-child(4) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 7;
+}
+
+.category__gallery > *:nth-child(5) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+}
+
+.category__gallery > *:nth-child(6) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+}
+
+.category__gallery > *:nth-child(7) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 5;
+}
+
+.category__gallery > *:nth-child(8) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 7;
+}
+.category__gallery .span4 {
+  -ms-grid-row-span: 2;
+  grid-row: span 2;
+  -ms-grid-column-span: 2;
+  grid-column: span 2;
+}
+.category__gallery img {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.category__gallery .category_hover {
+  width: 100%;
+  height: 16.5%;
+  background-color: #1E2832;
+  position: relative;
+  bottom: 16.5%;
+  z-index: 5;
+  opacity: 0;
+  -webkit-transition-duration: 500ms;
+       -o-transition-duration: 500ms;
+          transition-duration: 500ms;
+}
+.category__gallery .item-1:hover .category_hover, .category__gallery .item-2:hover .category_hover, .category__gallery .item-3:hover .category_hover, .category__gallery .item-4:hover .category_hover, .category__gallery .item-5:hover .category_hover {
+  opacity: 1;
+}
+@-webkit-keyframes hover {}
+@keyframes hover {}
+
+@media screen and (max-width: 750px) {
+  .category__brands {
+    height: 30%;
+  }
+  .category__brands .category__brands_list {
+    display: none;
+  }
+  .category__gallery {
+    padding: 0px 30px;
+    gap: 15px;
+    -ms-grid-columns: 1fr 15px 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: 1fr 15px 1fr 15px 1fr 15px 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
+  .category__gallery > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+  .category__gallery > *:nth-child(2) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+  }
+  .category__gallery > *:nth-child(3) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+  }
+  .category__gallery > *:nth-child(4) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+  }
+  .category__gallery > *:nth-child(5) {
+    -ms-grid-row: 5;
+    -ms-grid-column: 1;
+  }
+  .category__gallery > *:nth-child(6) {
+    -ms-grid-row: 5;
+    -ms-grid-column: 3;
+  }
+  .category__gallery > *:nth-child(7) {
+    -ms-grid-row: 7;
+    -ms-grid-column: 1;
+  }
+  .category__gallery > *:nth-child(8) {
+    -ms-grid-row: 7;
+    -ms-grid-column: 3;
+  }
+  .category__brands {
+    padding: 50px 30px;
+  }
+}
+@media screen and (max-width: 435px) {
+  .category__gallery {
+    -ms-grid-columns: auto;
+    grid-template-columns: auto;
+    -ms-grid-rows: auto;
+    grid-template-rows: auto;
+  }
+  .category__gallery > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+  .category__gallery .span4 {
+    -ms-grid-row-span: 1;
+    grid-row: span 1;
+    -ms-grid-column-span: 1;
+    grid-column: span 1;
+  }
+}
+--------------------------------------------------------------------------------------------------------------------------------Seaction__category__END-------------------------------------------------------------------------------------------------------------------------------- .products {
   -ms-grid-row: 4;
   -ms-grid-column: 1;
   grid-area: products;
