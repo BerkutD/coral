@@ -17,7 +17,6 @@
 	min-height: 100%;
 	width: 100%;
 }
-// --------------------------------------------------------------------------------------------------------------------------------Seaction__header__START--------------------------------------------------------------------------------------------------------------------------------
 .header {
 	box-sizing: border-box;
 	grid-area: header;
@@ -84,7 +83,6 @@ column-gap: 5px;
 	position: absolute;
 	left: -30px;
 	top: -3px;
-
 }
 .header__nav {
 	grid-area: header__nav;
@@ -103,7 +101,7 @@ column-gap: 5px;
 		}
 	}
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 768px) {
 	.container {
 		grid-template-rows: auto repeat(6, auto) auto;
 	}
@@ -134,7 +132,7 @@ column-gap: 5px;
 	}
 
 }
-@media screen and (max-width: 435px) {
+@media screen and (max-width: 576px) {
 	.header__wrapper {
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-areas: 
@@ -160,8 +158,7 @@ column-gap: 5px;
 		gap: 15px;
 	}
 }
-// --------------------------------------------------------------------------------------------------------------------------------Seaction__header__END--------------------------------------------------------------------------------------------------------------------------------
-// --------------------------------------------------------------------------------------------------------------------------------Seaction__hero__START--------------------------------------------------------------------------------------------------------------------------------
+
 .hero {
 	background-color: #f1f1f1;
 	grid-area: hero;
@@ -249,10 +246,6 @@ height: 100%;
 		font-size: 29px;
 		text-align: right;
 		padding-right: 25px;
-		// transition-duration: 500ms;
-		// &:hover {
-		// 	color:red;
-		// }
 	}
 }
 .hero__button_icon {
@@ -265,7 +258,7 @@ height: 100%;
 	}
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 768px) {
 	.hero {
 		height: 100%;
 	}
@@ -293,7 +286,7 @@ height: 100%;
 		}
 	}
 }
-@media screen and (max-width: 435px) {
+@media screen and (max-width: 576px) {
 	.hero__content {
 		.hero__img {
 			margin-bottom: 20px;
@@ -333,8 +326,7 @@ height: 100%;
 	}
 	
 }
-// --------------------------------------------------------------------------------------------------------------------------------Seaction__hero__END--------------------------------------------------------------------------------------------------------------------------------
-// --------------------------------------------------------------------------------------------------------------------------------Seaction__category__START--------------------------------------------------------------------------------------------------------------------------------
+
 .category {
 	grid-area: category;
 	height: 100%;
@@ -429,7 +421,7 @@ height: 100%;
 		}
 	}
 }
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 992px) {
 	.category__gallery {
 		& .span4 .category_hover{
 			font-size: 16px;
@@ -438,9 +430,8 @@ height: 100%;
 		font-size: 12px;
 	}
 }
-
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 768px) {
 	.category__brands {
 		height: 30%;
 		.category__brands_list {
@@ -460,7 +451,7 @@ height: 100%;
 			}
 	}
 }
-@media screen and (max-width: 435px) {
+@media screen and (max-width: 576px) {
 	.category__gallery {
 		grid-template-columns: auto;
 		grid-template-rows: auto;
@@ -473,33 +464,281 @@ height: 100%;
 		}
 	}
 }
---------------------------------------------------------------------------------------------------------------------------------Seaction__category__END--------------------------------------------------------------------------------------------------------------------------------
-// --------------------------------------------------------------------------------------------------------------------------------Seaction__products__START--------------------------------------------------------------------------------------------------------------------------------
+
 .products {
-	grid-area: products;
 	height: 100%;
+	grid-area: products;
+	display: grid;
+	grid-template-columns: 1fr minmax(auto, 1320px) 1fr;
+	grid-template-areas: 
+	". products__title ."
+	". products__nav ."
+	". products__items .";
+
 }
-// --------------------------------------------------------------------------------------------------------------------------------Seaction__products__END--------------------------------------------------------------------------------------------------------------------------------
-// --------------------------------------------------------------------------------------------------------------------------------Seaction__brand-banner__START--------------------------------------------------------------------------------------------------------------------------------
+.products__title {
+		padding: 0 50px;
+		grid-area: products__title;
+		font-family: 'Roboto';
+		font-weight: 500;
+		font-size: 45px;
+		text-align: center;
+		padding-bottom: 50px;
+	}
+
+.products__nav {
+	display: grid;
+	grid-template-columns: repeat(4, auto) 1fr auto;
+	grid-template-areas: "all t hoo jack . filter";
+	padding: 0 50px;
+	gap: 40px;
+	grid-area: products__nav;
+	font-family: 'Open Sans';
+	font-size: 16px;
+	padding-bottom: 30px;
+}
+.nav-1:hover, .nav-2:hover, .nav-3:hover, .nav-4:hover {
+	font-weight: 600;
+}
+li {
+	list-style: none;
+	a {
+		color: black;}
+}
+.filter {
+	grid-area: filter;
+	height: 32px;
+	width: 88px;
+	background-color: #1E2832;
+	font-family: 'Open Sans';
+	font-size: 16px;
+	color: #f1f1f1;
+	img {
+		height: 16px;
+		position: relative;
+		top: 3px;
+		left: -6px;
+		overflow: hidden;
+	}
+}
+.products__items {
+	padding: 0 50px;
+	grid-area: products__items;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: auto;
+	gap: 24px;
+	overflow: hidden;
+	object-fit: cover;
+	min-height: 100%;
+	min-width: 100%;
+	img {
+		width: 100%;
+		object-fit: cover;
+	}
+}
+.products__item_img {
+	position: relative;
+	overflow: hidden;
+}
+.products__item_img .products__img_hover{
+	position: absolute;
+	padding: 0 16px;
+	width: 100%;
+	height: 16.5%;
+	background-color: #1E2832;
+	z-index: 5;
+	bottom: -16.5%;
+	color: #f1f1f1;
+	font-family: 'Roboto';
+	font-weight: 400;
+	font-size: 18px;
+	display: grid;
+	grid-template-columns: auto auto 1fr auto auto;
+	grid-template-areas: "fav ser . shop tt";
+	align-items: center;
+	.fav {
+		grid-area: fav;
+		margin-right: 24px;
+	}
+	.ser{
+		grid-area: ser;
+		height: 22px;
+		width: 22px;
+		margin-top: 4px;
+	}
+	.shop {
+		grid-area: shop;
+		margin-right: 8px;
+	}
+	.tt {
+		grid-area: tt;
+	}
+	img {
+		height: 24px;
+		width: 24px;
+	}
+}
+.products__item_img:hover {
+	.products__img_hover {
+		bottom: 0;
+		animation-name: prod-hover;
+		animation-duration: 200ms;
+		animation-timing-function: ease-out ;
+	}
+}
+@keyframes prod-hover {
+	0% {
+		bottom: -16.5%;
+	}
+	100% {
+		bottom: 0;
+	}
+}
+.products__item-1, .products__item-2, .products__item-3, .products__item-4, .products__item-5, .products__item-6, .products__item-7, .products__item-8 {
+	min-height: 100%;
+	min-width: 100%;
+	overflow: hidden;
+}
+.products__item_category {
+	font-family: 'Open Sans';
+	font-weight: 400;
+	font-size: 16px;
+	grid-area: cat;
+	a {
+		color: #777777;
+	}
+}
+.products__item_name {
+	font-family: 'Open Sans';
+	font-weight: 600;
+	font-size: 16px;
+	padding-bottom: 16px;
+	padding-top: 18px;
+	a {
+		color: black;
+	}
+}
+.products__item_price {
+	font-family: 'Open Sans';
+	font-weight: 600;
+	font-size: 16px;
+	grid-area: price;
+}
+.category__price_box {
+	object-fit: fill;
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	grid-template-areas: "cat . price disc";
+	gap: 12px;
+	margin: 4px 0;
+	align-items: center;
+}
+.products__item_new-price {
+	font-family: 'Open Sans';
+	font-weight: 600;
+	font-size: 16px;
+	color: #FF6F61;
+	grid-area: disc;
+}
+.products__item_price-discount{
+	font-family: 'Open Sans';
+	font-weight: 600;
+	font-size: 14px;
+	text-decoration-line: line-through;
+	color: #777777;
+	grid-area: price;
+}
+.sale {
+	position: relative;
+}
+.sale:after {
+	content: 'SALE';
+	display: block;
+	position: absolute;
+	background: #1E2832;
+	color: #f1f1f1;
+	font-family: 'Open Sans';
+	font-weight: 600;
+	font-size: 12px;
+	text-transform: uppercase;
+	width: 52px;
+	height: 24px;
+	text-align: center;
+	padding: 6px 0;
+	top: 4.5%;
+	left: 0px;
+}
+.hot {
+	position: relative;
+}
+.hot:after {
+	content: 'HOT';
+	display: block;
+	position: absolute;
+	background: #FF6F61;
+	color: #f1f1f1;
+	font-family: 'Open Sans';
+	font-weight: 600;
+	font-size: 12px;
+	text-transform: uppercase;
+	width: 52px;
+	height: 24px;
+	text-align: center;
+	padding: 6px 0;
+	top: 4.5%;
+	left: 0px;
+}
+.products__item_img {
+}
+.products__img_hover {
+}
+.products__item-2 {
+}
+.products__item-3 {
+}
+.products__item-4 {
+}
+.products__item-5 {
+}
+.products__item-6 {
+}
+.products__item-7 {
+}
+.products__item-8 {
+}
+@media screen and (max-width: 1200px) {}
+@media screen and (max-width: 992px) {}
+@media screen and (max-width: 768px) {}
+@media screen and (max-width: 576px) {}
+
 .brand-banner {
 	grid-area: brand-banner;
-	height: 100%;
+	height: 100px;
 }
-// --------------------------------------------------------------------------------------------------------------------------------Seaction__brand-banner__END--------------------------------------------------------------------------------------------------------------------------------
-// --------------------------------------------------------------------------------------------------------------------------------Seaction__best-seller__START--------------------------------------------------------------------------------------------------------------------------------
+@media screen and (max-width: 992px) {}
+@media screen and (max-width: 768px) {}
+@media screen and (max-width: 576px) {}
+
 .best-seller {
 	grid-area: best-seller;
-	height: 100%;
+	height: 100px;
 }
-// --------------------------------------------------------------------------------------------------------------------------------Seaction__best-seller__END--------------------------------------------------------------------------------------------------------------------------------
-// --------------------------------------------------------------------------------------------------------------------------------Seaction__newsletter__START--------------------------------------------------------------------------------------------------------------------------------
+@media screen and (max-width: 992px) {}
+@media screen and (max-width: 768px) {}
+@media screen and (max-width: 576px) {}
+
 .newsletter {
 	grid-area: newsletter;
-	height: 100%;
+	height: 100px;
 }
-// --------------------------------------------------------------------------------------------------------------------------------Seaction__newsletter__END--------------------------------------------------------------------------------------------------------------------------------
-// --------------------------------------------------------------------------------------------------------------------------------Seaction__footer__START--------------------------------------------------------------------------------------------------------------------------------
+@media screen and (max-width: 992px) {}
+@media screen and (max-width: 768px) {}
+@media screen and (max-width: 576px) {}
+
 .footer {
 	grid-area: footer;
 }
-// --------------------------------------------------------------------------------------------------------------------------------Seaction__footer__END--------------------------------------------------------------------------------------------------------------------------------
+@media screen and (max-width: 992px) {}
+@media screen and (max-width: 768px) {}
+@media screen and (max-width: 576px) {}
