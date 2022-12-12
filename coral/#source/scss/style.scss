@@ -372,9 +372,11 @@ height: 100%;
 		grid-column: span 2;
 	}
 	.category__gallery_item {
+	.category__gallery_item {
 		min-height: 100%;
 		overflow: hidden;
 		object-fit: cover;
+		position: relative;
 		position: relative;
 	}
 	img {
@@ -391,6 +393,8 @@ height: 100%;
 		background-color: #1E2832;
 		position: absolute;
 		bottom: -16.5%;
+		position: absolute;
+		bottom: -16.5%;
 		z-index: 5;
 		color: #f1f1f1;
 		display: flex;
@@ -402,6 +406,7 @@ height: 100%;
 		font-weight: 600;
 		font-size: 16px;
 		transition: 200ms ease-in;
+		transition: 200ms ease-in;
 		p {
 			display: inline;
 		}
@@ -412,8 +417,10 @@ height: 100%;
 	.item-1:hover, .item-2:hover, .item-3:hover, .item-4:hover, .item-5:hover {
 		.category_hover {
 			bottom: 0;
+			bottom: 0;
 		}
 	}
+}
 }
 @media screen and (max-width: 992px) {
 	.category__gallery {
@@ -557,6 +564,7 @@ li {
 	grid-template-areas: "fav ser . shop tt";
 	align-items: center;
 	transition: 200ms ease-in;
+	transition: 200ms ease-in;
 	.fav {
 		grid-area: fav;
 		margin-right: 24px;
@@ -584,6 +592,7 @@ li {
 		bottom: 0;
 	}
 }
+
 
 .products__item-1, .products__item-2, .products__item-3, .products__item-4, .products__item-5, .products__item-6, .products__item-7, .products__item-8 {
 	min-height: 100%;
@@ -786,7 +795,7 @@ li {
 	position: absolute;
 	top: 37%;
 	right: 17%;
-	// height: 100%;
+
 }
 .brand-banner__content {
 	grid-area: brand-banner__content;
