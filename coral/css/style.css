@@ -623,11 +623,12 @@ html, body {
   -ms-grid-column-span: 2;
   grid-column: span 2;
 }
-.category__gallery .item-2, .category__gallery .item-1, .category__gallery .item-3, .category__gallery .item-4, .category__gallery .item-5 {
+.category__gallery .category__gallery_item {
   min-height: 100%;
   overflow: hidden;
   -o-object-fit: cover;
      object-fit: cover;
+  position: relative;
 }
 .category__gallery img {
   min-height: 100%;
@@ -642,8 +643,8 @@ html, body {
   width: 100%;
   height: 16.5%;
   background-color: #1E2832;
-  position: relative;
-  bottom: 0;
+  position: absolute;
+  bottom: -16.5%;
   z-index: 5;
   color: #f1f1f1;
   display: -webkit-box;
@@ -662,6 +663,9 @@ html, body {
   font-family: "Open Sans";
   font-weight: 600;
   font-size: 16px;
+  -webkit-transition: 200ms ease-in;
+  -o-transition: 200ms ease-in;
+  transition: 200ms ease-in;
 }
 .category__gallery .category_hover p {
   display: inline;
@@ -670,29 +674,7 @@ html, body {
   font-size: 26px;
 }
 .category__gallery .item-1:hover .category_hover, .category__gallery .item-2:hover .category_hover, .category__gallery .item-3:hover .category_hover, .category__gallery .item-4:hover .category_hover, .category__gallery .item-5:hover .category_hover {
-  bottom: 16.5%;
-  -webkit-animation-name: hover;
-          animation-name: hover;
-  -webkit-animation-duration: 200ms;
-          animation-duration: 200ms;
-  -webkit-animation-timing-function: ease-out;
-          animation-timing-function: ease-out;
-}
-@-webkit-keyframes hover {
-  0% {
-    bottom: 0px;
-  }
-  100% {
-    bottom: 16.5%;
-  }
-}
-@keyframes hover {
-  0% {
-    bottom: 0px;
-  }
-  100% {
-    bottom: 16.5%;
-  }
+  bottom: 0;
 }
 
 @media screen and (max-width: 992px) {
@@ -926,6 +908,9 @@ li a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: 200ms ease-in;
+  -o-transition: 200ms ease-in;
+  transition: 200ms ease-in;
 }
 .products__item_img .products__img_hover .fav {
   -ms-grid-row: 1;
@@ -959,31 +944,8 @@ li a {
 
 .products__item_img:hover .products__img_hover {
   bottom: 0;
-  -webkit-animation-name: prod-hover;
-          animation-name: prod-hover;
-  -webkit-animation-duration: 200ms;
-          animation-duration: 200ms;
-  -webkit-animation-timing-function: ease-out;
-          animation-timing-function: ease-out;
 }
 
-@-webkit-keyframes prod-hover {
-  0% {
-    bottom: -16.5%;
-  }
-  100% {
-    bottom: 0;
-  }
-}
-
-@keyframes prod-hover {
-  0% {
-    bottom: -16.5%;
-  }
-  100% {
-    bottom: 0;
-  }
-}
 .products__item-1, .products__item-2, .products__item-3, .products__item-4, .products__item-5, .products__item-6, .products__item-7, .products__item-8 {
   min-height: 100%;
   min-width: 100%;
@@ -1213,7 +1175,6 @@ li a {
   position: absolute;
   top: 37%;
   right: 17%;
-  height: 100%;
 }
 
 .brand-banner__content {
