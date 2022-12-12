@@ -623,23 +623,24 @@ html, body {
   -ms-grid-column-span: 2;
   grid-column: span 2;
 }
-.category__gallery .category__gallery_item {
+
+.category__gallery_item {
   min-height: 100%;
   overflow: hidden;
   -o-object-fit: cover;
      object-fit: cover;
   position: relative;
 }
-.category__gallery .category__gallery_item img {
+.category__gallery_item img {
   min-height: 100%;
   width: 100%;
   overflow: hidden;
-  position: relative;
   -o-object-fit: cover;
      object-fit: cover;
   z-index: 1;
 }
-.category__gallery .category__gallery_item .category_hover {
+
+.category_hover {
   width: 100%;
   height: 16.5%;
   background-color: #1E2832;
@@ -667,20 +668,16 @@ html, body {
   -o-transition: 200ms ease-in;
   transition: 200ms ease-in;
 }
-.category__gallery .category__gallery_item .category_hover p {
+.category_hover p {
   display: inline;
 }
-.category__gallery .category__gallery_item .span4 .category_hover {
+
+.span4 .category_hover {
   font-size: 26px;
 }
-.category__gallery .item-1:hover .category_hover, .category__gallery .item-2:hover .category_hover, .category__gallery .item-3:hover .category_hover, .category__gallery .item-4:hover .category_hover, .category__gallery .item-5:hover .category_hover {
-  bottom: 16.5%;
-  -webkit-animation-name: hover;
-          animation-name: hover;
-  -webkit-animation-duration: 200ms;
-          animation-duration: 200ms;
-  -webkit-animation-timing-function: ease-out;
-          animation-timing-function: ease-out;
+
+.item-1:hover .category_hover, .item-2:hover .category_hover, .item-3:hover .category_hover, .item-4:hover .category_hover, .item-5:hover .category_hover {
+  bottom: 0;
 }
 
 @media screen and (max-width: 992px) {
@@ -916,6 +913,7 @@ li a {
           align-items: center;
   -webkit-transition: 200ms ease-in;
   -o-transition: 200ms ease-in;
+  transition: 200ms ease-in;
   transition: 200ms ease-in;
 }
 .products__item_img .products__img_hover .fav {
@@ -1165,19 +1163,12 @@ li a {
   }
 }
 .brand-banner {
-  /*-ms-grid-row: 5;*/
-  /*-ms-grid-column: 1;*/
-  /*grid-area: brand-banner;*/
-  /*height: 100%;*/
-  /*margin: 140px auto 0 auto;*/
-  /*position: relative;*/
-  width: 100%;
-  height: 776px;
-  background-image: url("../img/brand-banner/bg_banner+logo.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: brand-banner;
+  height: 100%;
+  margin: 140px auto 0 auto;
   position: relative;
-
 }
 .brand-banner img {
   max-width: 100%;
@@ -1187,13 +1178,10 @@ li a {
 .brand-banner__content_box {
   position: absolute;
   top: 37%;
-  right: 17;
-  margin: 0 auto;
-  max-width: 1320px;
+  right: 17%;
 }
 
 .brand-banner__content {
-  float: right;
   grid-area: brand-banner__content;
   color: #f1f1f1;
 }
